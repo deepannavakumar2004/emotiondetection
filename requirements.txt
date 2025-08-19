@@ -3,10 +3,5 @@ opencv-python-headless==4.10.0.84
 numpy>=1.26.0
 deepface==0.0.93
 Pillow==11.1.0
-
-# Use PyTorch backend
 torch>=2.2.0
 torchvision>=0.17.0
-
-# Pin Keras so retinaface stops crashing
-keras==2.11.0
