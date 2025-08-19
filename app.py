@@ -7,7 +7,12 @@ from PIL import Image
 def detect_emotion(frame):
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     try:
-        result = DeepFace.analyze(frame_rgb, actions=['emotion'], enforce_detection=False)
+        result = DeepFace.analyze(
+    img_path="sample.jpg",
+    actions=["emotion"],
+    detector_backend="retinaface",
+    enforce_detection=False
+)
         if isinstance(result, list):
             result = result[0]
         emotion = result.get('dominant_emotion', 'Unknown')
@@ -33,3 +38,4 @@ while run:
     FRAME_WINDOW.image(frame, channels='RGB')
 
 cap.release()
+
