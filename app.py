@@ -10,9 +10,10 @@ def detect_emotion(frame):
         result = DeepFace.analyze(
     img_path="sample.jpg",
     actions=["emotion"],
-    detector_backend="retinaface",
+    detector_backend="opencv",  # 👈 avoids RetinaFace/Keras issue
     enforce_detection=False
 )
+
         if isinstance(result, list):
             result = result[0]
         emotion = result.get('dominant_emotion', 'Unknown')
@@ -38,4 +39,5 @@ while run:
     FRAME_WINDOW.image(frame, channels='RGB')
 
 cap.release()
+
 
